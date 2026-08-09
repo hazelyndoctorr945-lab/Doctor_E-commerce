@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalidaTech Login</title>
+
+    <!-- Login CSS -->
+    <link rel="stylesheet" href="login.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="container" id="container">
+
+    <!-- Login Form -->
+    <div class="form-container login-container">
+
+        <form id="loginForm">
+
+            <h1>Login</h1>
+
+            <div class="input-box">
+                <i class="fa-solid fa-user lock-icon"></i>
+                <input type="text" id="loginUsername" placeholder="Username" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-lock lock-icon"></i>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <i class="fa-solid fa-eye toggle-password"></i>
+            </div>
+
+            <a href="#" class="forgot">Forgot Password?</a>
+
+            <button type="submit" class="btn">
+                Login
+            </button>
+
+            <p class="switch-text">
+                Don't have an account?
+                <a href="#" id="registerLink">Register</a>
+            </p>
+
+            <div class="divider">
+                <span>OR</span>
+            </div>
+
+            <button type="button" class="google-btn">
+                <i class="fa-brands fa-google"></i>
+                Continue with Google
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- Register Form -->
+    <div class="form-container register-container">
+
+        <form id="registerForm">
+
+            <h1>Create Account</h1>
+
+            <div class="input-box">
+                <i class="fa-solid fa-user lock-icon"></i>
+                <input type="text" id="regUsername" placeholder="Username" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-envelope lock-icon"></i>
+                <input type="email" id="regEmail" placeholder="Email" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-lock lock-icon"></i>
+                <input type="password" id="regPassword" placeholder="Password" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-lock lock-icon"></i>
+                <input type="password" id="regConfirmPassword" placeholder="Confirm Password" required>
+            </div>
+
+            <button type="submit" class="btn">
+                Register
+            </button>
+
+            <p class="switch-text">
+                Already have an account?
+                <a href="#" id="loginLink">Login</a>
+            </p>
+
+        </form>
+
+    </div>
+
+    <!-- Toggle Panel -->
+    <div class="toggle-container">
+
+        <div class="toggle">
+
+            <div class="toggle-panel toggle-left">
+
+                <h1>Welcome!</h1>
+
+                <p>Create your CalidaTech account.</p>
+
+                <button class="hidden" id="register" type="button">
+                    Register
+                </button>
+
+            </div>
+
+            <div class="toggle-panel toggle-right">
+
+                <h1>Welcome Back!</h1>
+
+                <p>Already have an account?</p>
+
+                <button class="hidden" id="login" type="button">
+                    Login
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Success Popup -->
+<div class="popup" id="successPopup">
+
+    <div class="popup-content">
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        <h2>Success!</h2>
+
+        <p id="popupMessage">Registration completed successfully.</p>
+
+        <button id="closePopup">OK</button>
+
+    </div>
+
+</div>
+
+<!-- Login JavaScript -->
+<script src="login.js"></script>
+
+</body>
+</html>

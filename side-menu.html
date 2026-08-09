@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalidaTech Side Menu</title>
+
+    <link rel="stylesheet" href="side-menu.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- Menu Button -->
+    <button class="menu-btn" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+
+        <div class="logo">
+            <i class="fas fa-laptop-code"></i>
+            <h2>CalidaTech</h2>
+        </div>
+
+        <div class="menu-group">
+           
+
+            <a href="#" class="active">
+                <i class="fas fa-home"></i> Home
+            </a>
+
+            <a href="#">
+                <i class="fas fa-box"></i> Products
+            </a>
+
+          
+        </div>
+
+        <div class="menu-group">
+
+            <a href="#">
+                <i class="fas fa-shopping-cart"></i> Cart
+            </a>
+
+            <a href="#">
+                <i class="fas fa-receipt"></i> My Orders
+            </a>
+
+            <a href="#">
+                <i class="fas fa-heart"></i> Wishlist
+            </a>
+        </div>
+
+        <div class="menu-group">
+
+            <a href="#">
+                <i class="fas fa-user"></i> Profile
+            </a>
+
+            <a href="#">
+                <i class="fas fa-cog"></i> Settings
+            </a>
+        </div>
+
+        <div class="menu-group">
+
+            <a href="#" id="logout">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1>CalidaTech Dashboard</h1>
+        <p>Select a menu item from the sidebar.</p>
+    </div>
+
+    <script src="side-menu.js"></script>
+
+</body>
+</html>
