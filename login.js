@@ -1,155 +1,378 @@
-// ===============================
-// ELEMENTS
-// ===============================
+// ==================================================
+// CALIDATECH LOGIN SYSTEM
+// ==================================================
+
+
+// ==================================================
+// GET ELEMENTS
+// ==================================================
+
 const container = document.getElementById("container");
 
-const registerBtn = document.getElementById("register");
-const loginBtn = document.getElementById("login");
+const registerButton = document.getElementById("register");
+const loginButton = document.getElementById("login");
 
 const registerLink = document.getElementById("registerLink");
 const loginLink = document.getElementById("loginLink");
 
-const registerForm = document.getElementById("registerForm");
 const loginForm = document.getElementById("loginForm");
+const registerForm = document.getElementById("registerForm");
 
 const popup = document.getElementById("successPopup");
 const popupMessage = document.getElementById("popupMessage");
 const closePopup = document.getElementById("closePopup");
 
-// ===============================
-// SHOW SUCCESS POPUP
-// ===============================
-function showSuccess(message) {
-    popupMessage.textContent = message;
-    popup.classList.add("show");
-}
+const forgotPassword = document.getElementById("forgotPassword");
 
-if (closePopup) {
-    closePopup.addEventListener("click", function () {
-        popup.classList.remove("show");
-    });
-}
+const googleButton = document.querySelector(".google-btn");
 
-// ===============================
-// SWITCH PANELS
-// ===============================
-if (registerBtn) {
-    registerBtn.addEventListener("click", function () {
+const passwordIcons =
+    document.querySelectorAll(".toggle-password");
+
+
+// ==================================================
+// SWITCH TO REGISTER
+// ==================================================
+
+if (registerButton) {
+
+    registerButton.addEventListener("click", function () {
+
         container.classList.add("active");
+
     });
+
 }
 
-if (loginBtn) {
-    loginBtn.addEventListener("click", function () {
+
+// ==================================================
+// SWITCH TO LOGIN
+// ==================================================
+
+if (loginButton) {
+
+    loginButton.addEventListener("click", function () {
+
         container.classList.remove("active");
+
     });
+
 }
+
+
+// ==================================================
+// REGISTER LINK
+// ==================================================
 
 if (registerLink) {
-    registerLink.addEventListener("click", function (e) {
-        e.preventDefault();
+
+    registerLink.addEventListener("click", function (event) {
+
+        event.preventDefault();
+
         container.classList.add("active");
+
     });
+
 }
+
+
+// ==================================================
+// LOGIN LINK
+// ==================================================
 
 if (loginLink) {
-    loginLink.addEventListener("click", function (e) {
-        e.preventDefault();
+
+    loginLink.addEventListener("click", function (event) {
+
+        event.preventDefault();
+
         container.classList.remove("active");
+
     });
+
 }
 
-// ===============================
-// GOOGLE BUTTON
-// ===============================
-const googleBtn = document.querySelector(".google-btn");
 
-if (googleBtn) {
-    googleBtn.addEventListener("click", function () {
-        alert("Google Sign-In is not available in this demo.");
-    });
-}
+// ==================================================
+// REGISTER ACCOUNT
+// ==================================================
 
-// ===============================
-// REGISTER
-// ===============================
 if (registerForm) {
 
-    registerForm.addEventListener("submit", function (e) {
+    registerForm.addEventListener("submit", function (event) {
 
-        e.preventDefault();
+        event.preventDefault();
 
-        const username = document.getElementById("regUsername").value.trim();
-        const email = document.getElementById("regEmail").value.trim();
-        const password = document.getElementById("regPassword").value;
-        const confirmPassword = document.getElementById("regConfirmPassword").value;
 
-        if (username === "" || email === "" || password === "" || confirmPassword === "") {
+        // Get values
+
+        const username =
+            document
+                .getElementById("regUsername")
+                .value
+                .trim();
+
+
+        const email =
+            document
+                .getElementById("regEmail")
+                .value
+                .trim();
+
+
+        const password =
+            document
+                .getElementById("regPassword")
+                .value;
+
+
+        const confirmPassword =
+            document
+                .getElementById("regConfirmPassword")
+                .value;
+
+
+        // Check fields
+
+        if (
+            username === "" ||
+            email === "" ||
+            password === "" ||
+            confirmPassword === ""
+        ) {
+
             alert("Please fill in all fields.");
+
             return;
+
         }
+
+
+        // Check password length
+
+        if (password.length < 6) {
+
+            alert(
+                "Password must be at least 6 characters."
+            );
+
+            return;
+
+        }
+
+
+        // Check password
 
         if (password !== confirmPassword) {
-            alert("Passwords do not match.");
+
+            alert(
+                "Passwords do not match."
+            );
+
             return;
+
         }
 
+
+        // Create account
+
         const user = {
+
             username: username,
+
             email: email,
+
             password: password
+
         };
 
-        localStorage.setItem("user", JSON.stringify(user));
 
-        showSuccess("Registration Successful!");
+        // Save account
+
+        localStorage.setItem(
+            "calidatechUser",
+            JSON.stringify(user)
+        );
+
+
+        // Show popup
+
+        if (popup && popupMessage) {
+
+            popupMessage.textContent =
+                "Registration successful! You can now login.";
+
+            popup.classList.add("show");
+
+        }
+
+
+        // Clear form
 
         registerForm.reset();
 
+
+        // Return to login
+
         setTimeout(function () {
-            popup.classList.remove("show");
+
+            if (popup) {
+
+                popup.classList.remove("show");
+
+            }
+
             container.classList.remove("active");
+
         }, 1500);
 
     });
 
 }
 
-// ===============================
+
+// ==================================================
 // LOGIN
-// ===============================
+// ==================================================
+
 if (loginForm) {
 
-    loginForm.addEventListener("submit", function (e) {
+    loginForm.addEventListener("submit", function (event) {
 
-        e.preventDefault();
+        event.preventDefault();
 
-        const username = document.getElementById("loginUsername").value.trim();
-        const password = document.getElementById("loginPassword").value;
 
-        if (username === "" || password === "") {
-            alert("Please enter your username and password.");
-            return;
-        }
+        // Get login values
 
-        const user = JSON.parse(localStorage.getItem("user"));
+        const username =
+            document
+                .getElementById("loginUsername")
+                .value
+                .trim();
+
+
+        const password =
+            document
+                .getElementById("loginPassword")
+                .value;
+
+
+        // Check empty fields
 
         if (
-            user &&
-            username === user.username &&
-            password === user.password
+            username === "" ||
+            password === ""
         ) {
 
-            showSuccess("Login Successful!");
+            alert(
+                "Please enter your username and password."
+            );
 
-            loginForm.reset();
+            return;
 
-            // DO NOT CONNECT TO SIDE MENU
-            // window.location.href = "side-menu.html";
+        }
 
-        } else {
 
-            alert("Invalid Username or Password.");
+        // Get registered user
+
+        const savedUser =
+            localStorage.getItem("calidatechUser");
+
+
+        // Check account
+
+        if (!savedUser) {
+
+            alert(
+                "No registered account found. Please register first."
+            );
+
+            return;
+
+        }
+
+
+        // Convert saved account
+
+        let user;
+
+        try {
+
+            user = JSON.parse(savedUser);
+
+        } catch (error) {
+
+            alert(
+                "There is a problem with your saved account. Please register again."
+            );
+
+            localStorage.removeItem("calidatechUser");
+
+            return;
+
+        }
+
+
+        // Check username
+
+        if (username !== user.username) {
+
+            alert(
+                "Incorrect username."
+            );
+
+            return;
+
+        }
+
+
+        // Check password
+
+        if (password !== user.password) {
+
+            alert(
+                "Incorrect password."
+            );
+
+            return;
+
+        }
+
+
+        // ==================================================
+        // LOGIN SUCCESSFUL
+        // ==================================================
+
+        localStorage.setItem(
+            "calidatechLoggedIn",
+            "true"
+        );
+
+
+        alert("Login successful!");
+
+
+        // Go to Side Menu
+
+        window.location.href = "side-menu.html";
+
+    });
+
+}
+
+
+// ==================================================
+// CLOSE POPUP
+// ==================================================
+
+if (closePopup) {
+
+    closePopup.addEventListener("click", function () {
+
+        if (popup) {
+
+            popup.classList.remove("show");
 
         }
 
@@ -157,29 +380,47 @@ if (loginForm) {
 
 }
 
-// ===============================
-// SHOW / HIDE PASSWORD
-// ===============================
-const eyeIcons = document.querySelectorAll(".toggle-password");
 
-eyeIcons.forEach(function (icon) {
+// ==================================================
+// SHOW / HIDE PASSWORD
+// ==================================================
+
+passwordIcons.forEach(function (icon) {
 
     icon.addEventListener("click", function () {
 
-        const input = this.previousElementSibling;
+        const passwordInput =
+            this.previousElementSibling;
 
-        if (input.type === "password") {
 
-            input.type = "text";
+        if (!passwordInput) {
+
+            return;
+
+        }
+
+
+        // Show password
+
+        if (passwordInput.type === "password") {
+
+            passwordInput.type = "text";
 
             this.classList.remove("fa-eye");
+
             this.classList.add("fa-eye-slash");
 
-        } else {
+        }
 
-            input.type = "password";
+
+        // Hide password
+
+        else {
+
+            passwordInput.type = "password";
 
             this.classList.remove("fa-eye-slash");
+
             this.classList.add("fa-eye");
 
         }
@@ -187,3 +428,45 @@ eyeIcons.forEach(function (icon) {
     });
 
 });
+
+
+// ==================================================
+// FORGOT PASSWORD
+// ==================================================
+
+if (forgotPassword) {
+
+    forgotPassword.addEventListener(
+        "click",
+        function (event) {
+
+            event.preventDefault();
+
+            alert(
+                "Forgot Password is not available in this demo."
+            );
+
+        }
+    );
+
+}
+
+
+// ==================================================
+// GOOGLE LOGIN
+// ==================================================
+
+if (googleButton) {
+
+    googleButton.addEventListener(
+        "click",
+        function () {
+
+            alert(
+                "Google Sign-In is not available in this demo."
+            );
+
+        }
+    );
+
+}

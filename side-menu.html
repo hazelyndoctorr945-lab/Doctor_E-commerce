@@ -3,83 +3,722 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CalidaTech Side Menu</title>
 
+    <title>CalidaTech</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="side-menu.css">
 
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
     <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
+
 <body>
 
-    <!-- Menu Button -->
-    <button class="menu-btn" onclick="toggleMenu()">
-        <i class="fas fa-bars"></i>
-    </button>
+    <!-- ================= SIDEBAR ================= -->
 
-    <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
+    <aside class="sidebar" id="sidebar">
 
-        <div class="logo">
-            <i class="fas fa-laptop-code"></i>
-            <h2>CalidaTech</h2>
-        </div>
+       <div class="logo-section">
+    <img src="logo.png" alt="CalidaTech Logo">
 
+    <p class="user-name" id="userName">
+        User
+    </p>
+</div>
+        <!-- Main Navigation -->
         <div class="menu-group">
-           
+            <h4>Main Navigation</h4>
 
-            <a href="#" class="active">
-                <i class="fas fa-home"></i> Home
+            <a href="#" class="menu-link active" data-section="home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
             </a>
 
-            <a href="#">
-                <i class="fas fa-box"></i> Products
+            <a href="#" class="menu-link" data-section="products">
+                <i class="fas fa-box"></i>
+                <span>Products</span>
             </a>
 
-          
+            <a href="#" class="menu-link" data-section="categories">
+                <i class="fas fa-list"></i>
+                <span>Categories</span>
+            </a>
         </div>
 
+        <!-- Shopping -->
         <div class="menu-group">
+            <h4>Shopping</h4>
 
-            <a href="#">
-                <i class="fas fa-shopping-cart"></i> Cart
+            <a href="#" class="menu-link" data-section="cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Cart</span>
             </a>
 
-            <a href="#">
-                <i class="fas fa-receipt"></i> My Orders
+            <a href="#" class="menu-link" data-section="orders">
+                <i class="fas fa-receipt"></i>
+                <span>My Orders</span>
             </a>
 
-            <a href="#">
-                <i class="fas fa-heart"></i> Wishlist
+            <a href="#" class="menu-link" data-section="wishlist">
+                <i class="fas fa-heart"></i>
+                <span>Wishlist</span>
             </a>
         </div>
 
+        <!-- Account -->
         <div class="menu-group">
+            <h4>Account</h4>
 
-            <a href="#">
-                <i class="fas fa-user"></i> Profile
+            <a href="#" class="menu-link" data-section="profile">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
             </a>
 
-            <a href="#">
-                <i class="fas fa-cog"></i> Settings
-            </a>
-        </div>
-
-        <div class="menu-group">
-
-            <a href="#" id="logout">
-                <i class="fas fa-sign-out-alt"></i> Logout
+            <a href="#" class="menu-link" data-section="settings">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
             </a>
         </div>
 
-    </div>
+        <!-- System -->
+       <div class="menu-group">
+    <h4>System</h4>
 
-    <!-- Main Content -->
-    <div class="content">
-        <h1>CalidaTech Dashboard</h1>
-        <p>Select a menu item from the sidebar.</p>
-    </div>
+   <div class="menu-group">
+    <h4>System</h4>
 
+    <a href="login.html" class="menu-link" id="logout">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Logout</span>
+    </a>
+</div>
+
+       
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+        <!-- Menu Button -->
+        <button class="menu-btn" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+
+
+        <!-- ================= HOME ================= -->
+
+        <section id="home" class="content-section active-section">
+
+            <h1>Welcome to CalidaTech!</h1>
+
+            <p>
+                Welcome to CalidaTech, your online technology store.
+                We provide different gadgets, computer accessories,
+                and technology products at affordable prices.
+            </p>
+
+            <p>
+                CalidaTech is designed to make shopping for technology
+                products simple, convenient, and easy to understand.
+                Customers can browse products, check categories,
+                manage their shopping cart, and view their orders.
+            </p>
+
+            <p>
+                Whether you are a student, gamer, employee, or casual
+                technology user, CalidaTech offers products that can
+                help with your daily technology needs.
+            </p>
+
+            <h2>Featured Products</h2>
+
+            <div class="product-container">
+
+                <div class="card">
+                    <i class="fas fa-laptop fa-3x"></i>
+                    <h3>Laptop</h3>
+                    <p>₱35,999</p>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+
+                <div class="card">
+                    <i class="fas fa-keyboard fa-3x"></i>
+                    <h3>Mechanical Keyboard</h3>
+                    <p>₱2,499</p>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+
+                <div class="card">
+                    <i class="fas fa-headphones fa-3x"></i>
+                    <h3>Gaming Headset</h3>
+                    <p>₱1,599</p>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+
+                <!-- ADDED CONTENT -->
+
+                <div class="card">
+                    <i class="fas fa-mobile-screen fa-3x"></i>
+                    <h3>Smartphone</h3>
+                    <p>₱18,999</p>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+
+                <div class="card">
+                    <i class="fas fa-mouse fa-3x"></i>
+                    <h3>Wireless Mouse</h3>
+                    <p>₱899</p>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PRODUCTS ================= -->
+
+        <section id="products" class="content-section">
+
+            <h1>Products</h1>
+
+            <p>Browse our available technology products.</p>
+
+            <p>
+                We offer different products for school, work,
+                entertainment, and gaming. Choose a product that
+                fits your needs and budget.
+            </p>
+
+            <div class="product-container">
+
+                <div class="card">
+                    <i class="fas fa-laptop fa-3x"></i>
+                    <h3>Gaming Laptop</h3>
+                    <p>₱45,999</p>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+
+                <div class="card">
+                    <i class="fas fa-mobile-screen fa-3x"></i>
+                    <h3>Smartphone</h3>
+                    <p>₱18,999</p>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+
+                <div class="card">
+                    <i class="fas fa-mouse fa-3x"></i>
+                    <h3>Gaming Mouse</h3>
+                    <p>₱1,299</p>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+
+                <!-- ADDED PRODUCTS -->
+
+                <div class="card">
+                    <i class="fas fa-keyboard fa-3x"></i>
+                    <h3>Wireless Keyboard</h3>
+                    <p>₱1,799</p>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+
+                <div class="card">
+                    <i class="fas fa-headphones fa-3x"></i>
+                    <h3>Bluetooth Headphones</h3>
+                    <p>₱2,199</p>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+
+                <div class="card">
+                    <i class="fas fa-desktop fa-3x"></i>
+                    <h3>Computer Monitor</h3>
+                    <p>₱8,499</p>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+
+                <div class="card">
+                    <i class="fas fa-hard-drive fa-3x"></i>
+                    <h3>External Hard Drive</h3>
+                    <p>₱3,499</p>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+
+                <div class="card">
+                    <i class="fas fa-memory fa-3x"></i>
+                    <h3>USB Flash Drive</h3>
+                    <p>₱599</p>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CATEGORIES ================= -->
+
+        <section id="categories" class="content-section">
+
+            <h1>Categories</h1>
+
+            <p>
+                Explore our different technology categories.
+                Each category contains products made for different
+                users and purposes.
+            </p>
+
+            <div class="category-container">
+
+                <div class="category-card">
+                    <i class="fas fa-laptop"></i>
+                    <h3>Computers</h3>
+                    <p>
+                        Laptops, desktops, and computer accessories
+                        for school, work, and gaming.
+                    </p>
+                </div>
+
+                <div class="category-card">
+                    <i class="fas fa-mobile-screen"></i>
+                    <h3>Mobile Devices</h3>
+                    <p>
+                        Smartphones and other mobile technology
+                        products.
+                    </p>
+                </div>
+
+                <div class="category-card">
+                    <i class="fas fa-gamepad"></i>
+                    <h3>Gaming</h3>
+                    <p>
+                        Gaming keyboards, mice, headsets, and
+                        other gaming accessories.
+                    </p>
+                </div>
+
+                <!-- ADDED CATEGORIES -->
+
+                <div class="category-card">
+                    <i class="fas fa-headphones"></i>
+                    <h3>Audio</h3>
+                    <p>
+                        Headphones, speakers, microphones, and
+                        other audio accessories for entertainment
+                        and communication.
+                    </p>
+                </div>
+
+                <div class="category-card">
+                    <i class="fas fa-camera"></i>
+                    <h3>Accessories</h3>
+                    <p>
+                        Cables, chargers, adapters, storage devices,
+                        and other useful technology accessories.
+                    </p>
+                </div>
+
+                <div class="category-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Networking</h3>
+                    <p>
+                        Routers, network accessories, and other
+                        products for internet connectivity.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CART ================= -->
+
+        <section id="cart" class="content-section">
+
+            <h1>Shopping Cart</h1>
+
+            <p>
+                Review the products you selected before checking out.
+                You can check the quantity, price, and total amount.
+            </p>
+
+            <div class="cart-box">
+
+                <h3>Mechanical Keyboard</h3>
+
+                <p>Quantity: 2</p>
+
+                <p>Price: ₱2,499 each</p>
+
+                <p>Subtotal: ₱4,998</p>
+
+                <h3>Total: ₱4,998</h3>
+
+                <p>Delivery: Free delivery for this order.</p>
+
+                <p>Payment Method: Cash on Delivery</p>
+
+                <p>Estimated Delivery: 2-5 business days</p>
+
+                <button class="checkout-btn">
+                    Checkout
+                </button>
+
+            </div>
+
+            <div class="cart-box">
+
+                <h3>Gaming Mouse</h3>
+
+                <p>Quantity: 1</p>
+
+                <p>Price: ₱1,299</p>
+
+                <p>Subtotal: ₱1,299</p>
+
+                <h3>Cart Item Total: ₱1,299</h3>
+
+                <button class="checkout-btn">
+                    Checkout
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= MY ORDERS ================= -->
+
+        <section id="orders" class="content-section">
+
+            <h1>My Orders</h1>
+
+            <p>
+                Here you can view the status and total amount of
+                your recent orders.
+            </p>
+
+            <div class="order">
+
+                <h3>Order #CT001</h3>
+
+                <p>Status: <strong>Delivered</strong></p>
+
+                <p>Total Amount: ₱5,999</p>
+
+                <p>Payment: Paid</p>
+
+                <p>Delivery: Completed</p>
+
+                <p>
+                    Your order has been successfully delivered.
+                </p>
+
+            </div>
+
+            <div class="order">
+
+                <h3>Order #CT002</h3>
+
+                <p>Status: <strong>Processing</strong></p>
+
+                <p>Total Amount: ₱18,999</p>
+
+                <p>Payment: Paid</p>
+
+                <p>Delivery: Preparing</p>
+
+                <p>
+                    Your order is currently being prepared.
+                </p>
+
+            </div>
+
+            <div class="order">
+
+                <h3>Order #CT003</h3>
+
+                <p>Status: <strong>Pending</strong></p>
+
+                <p>Total Amount: ₱2,499</p>
+
+                <p>Payment: Pending</p>
+
+                <p>Delivery: Not yet shipped</p>
+
+                <p>
+                    Please complete the payment to continue your order.
+                </p>
+
+            </div>
+
+            <!-- ADDED ORDER -->
+
+            <div class="order">
+
+                <h3>Order #CT004</h3>
+
+                <p>Status: <strong>Preparing</strong></p>
+
+                <p>Total Amount: ₱3,499</p>
+
+                <p>Payment: Paid</p>
+
+                <p>Delivery: Preparing for shipment</p>
+
+                <p>
+                    Your item is being prepared for delivery.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= WISHLIST ================= -->
+
+        <section id="wishlist" class="content-section">
+
+            <h1>Wishlist</h1>
+
+            <p>
+                Save your favorite technology products here so you
+                can easily find them later.
+            </p>
+
+            <p>
+                You can move a product from your wishlist to your
+                shopping cart whenever you are ready to purchase.
+            </p>
+
+            <div class="product-container">
+
+                <div class="card">
+
+                    <i class="fas fa-laptop fa-3x"></i>
+
+                    <h3>Gaming Laptop</h3>
+
+                    <p>
+                        High-performance laptop suitable
+                        for gaming and school.
+                    </p>
+
+                    <p>₱45,999</p>
+
+                    <button class="cart-btn">
+                        Move to Cart
+                    </button>
+
+                </div>
+
+                <div class="card">
+
+                    <i class="fas fa-headphones fa-3x"></i>
+
+                    <h3>Gaming Headset</h3>
+
+                    <p>
+                        Comfortable headset for gaming
+                        and entertainment.
+                    </p>
+
+                    <p>₱1,599</p>
+
+                    <button class="cart-btn">
+                        Move to Cart
+                    </button>
+
+                </div>
+
+                <div class="card">
+
+                    <i class="fas fa-keyboard fa-3x"></i>
+
+                    <h3>Keyboard</h3>
+
+                    <p>
+                        Mechanical keyboard with
+                        comfortable keys.
+                    </p>
+
+                    <p>₱2,499</p>
+
+                    <button class="cart-btn">
+                        Move to Cart
+                    </button>
+
+                </div>
+
+                <!-- ADDED WISHLIST ITEM -->
+
+                <div class="card">
+
+                    <i class="fas fa-mobile-screen fa-3x"></i>
+
+                    <h3>Smartphone</h3>
+
+                    <p>
+                        Modern smartphone suitable for
+                        communication, school, and entertainment.
+                    </p>
+
+                    <p>₱18,999</p>
+
+                    <button class="cart-btn">
+                        Move to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PROFILE ================= -->
+
+        <section id="profile" class="content-section">
+
+            <h1>Profile</h1>
+
+            <p>
+                View your account information and basic profile details.
+            </p>
+
+            <div class="profile-box">
+
+                <i class="fas fa-user-circle fa-5x"></i>
+
+                <h2>Hazelyn Doctor</h2>
+
+                <p>
+                    <strong>Account Status:</strong> Active
+                </p>
+
+                <p>
+                    <strong>Email:</strong>
+                    hazeldoctor@gmail.com
+                </p>
+
+                <p>
+                    <strong>Course:</strong>
+                    BS Information Technology
+                </p>
+
+                <p>
+                    <strong>Year Level:</strong>
+                    2nd Year
+                </p>
+
+                <p>
+                    <strong>Member Since:</strong>
+                    2026
+                </p>
+
+                <p>
+                    <strong>Account Type:</strong>
+                    Customer
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SETTINGS ================= -->
+
+        <section id="settings" class="content-section">
+
+            <h1>Settings</h1>
+
+            <p>
+                Manage your account, privacy, and notification
+                preferences below.
+            </p>
+
+            <div class="settings-box">
+
+                <h3>Account Settings</h3>
+
+                <label>
+                    <input type="checkbox" checked>
+                    Remember my account
+                </label>
+
+                <p>
+                    Keep your account remembered on this device
+                    for easier access.
+                </p>
+
+                <h3>Privacy Settings</h3>
+
+                <label>
+                    <input type="checkbox" checked>
+                    Keep my profile private
+                </label>
+
+                <p>
+                    Your personal profile information will remain
+                    private.
+                </p>
+
+                <h3>Notification Settings</h3>
+
+                <label>
+                    <input type="checkbox" checked>
+                    Receive notifications
+                </label>
+
+                <p>
+                    Receive updates about orders, products, and
+                    account activities.
+                </p>
+
+                <!-- ADDED SETTINGS -->
+
+                <h3>Shopping Preferences</h3>
+
+                <label>
+                    <input type="checkbox" checked>
+                    Show product recommendations
+                </label>
+
+                <p>
+                    Get product suggestions based on available
+                    technology products.
+                </p>
+
+                <h3>Order Updates</h3>
+
+                <label>
+                    <input type="checkbox" checked>
+                    Receive order status updates
+                </label>
+
+                <p>
+                    Receive information when your order changes status.
+                </p>
+
+            </div>
+
+        </section>
+
+
+       
+
+    </main>
+
+
+    <!-- JavaScript -->
     <script src="side-menu.js"></script>
 
 </body>
